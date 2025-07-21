@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "manager",
+      "password": "managerpass",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "sdr1",
+      "password": "sdrpass",
+      "role": "user"
+    }
+  ],
+  "consultants": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "active": true,
+      "lastAssigned": 0
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "active": true,
+      "lastAssigned": 0
+    }
+  ]
+}
