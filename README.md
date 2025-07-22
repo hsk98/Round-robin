@@ -15,7 +15,8 @@ The API listens on `http://localhost:4000`.
 
 ## Running the Frontend
 
-The frontend is a small Next.js project located in `frontend/`.
+The frontend is a small Next.js project located in `frontend/` and uses
+Tailwind CSS for styling.
 
 ```bash
 cd frontend
