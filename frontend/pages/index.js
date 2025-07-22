@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const [token, setToken] = useState('');
@@ -69,41 +70,54 @@ export default function Home() {
 
   if (!token) {
     return (
-      <main style={{ padding: '2rem' }}>
-        <h1>Round-robin Demo</h1>
-        <div>
-          <input placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
+      <main className={styles.container}>
+        <div className={styles.card}>
+          <h1 className={styles.title}>Round-robin Demo</h1>
+          <input
+            className={styles.input}
+            placeholder="Username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          <input
+            className={styles.input}
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <button className={styles.button} onClick={login}>Login</button>
+          {message && <p className={styles.message}>{message}</p>}
         </div>
-        <div>
-          <input placeholder="Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-        </div>
-        <button onClick={login}>Login</button>
-        {message && <p>{message}</p>}
       </main>
     );
   }
 
   if (role === 'admin') {
     return (
-      <main style={{ padding: '2rem' }}>
-        <h1>Admin Dashboard</h1>
-        <button onClick={loadConsultants}>Load Consultants</button>
-        <ul>
-          {consultants.map(c => (
-            <li key={c.id}>{c.name} {c.active ? '' : '(inactive)'}</li>
-          ))}
-        </ul>
-        {message && <p>{message}</p>}
+      <main className={styles.container}>
+        <div className={styles.card}>
+          <h1 className={styles.title}>Admin Dashboard</h1>
+          <button className={styles.button} onClick={loadConsultants}>Load Consultants</button>
+          <ul>
+            {consultants.map(c => (
+              <li key={c.id}>{c.name} {c.active ? '' : '(inactive)'}</li>
+            ))}
+          </ul>
+          {message && <p className={styles.message}>{message}</p>}
+        </div>
       </main>
     );
   }
 
   return (
-    <main style={{ padding: '2rem' }}>
-      <h1>User Dashboard</h1>
-      <button onClick={assign}>Get Next Consultant</button>
-      {nextConsultant && <p>Assigned to {nextConsultant.name}</p>}
-      {message && <p>{message}</p>}
+    <main className={styles.container}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>User Dashboard</h1>
+        <button className={styles.button} onClick={assign}>Get Next Consultant</button>
+        {nextConsultant && <p>Assigned to {nextConsultant.name}</p>}
+        {message && <p className={styles.message}>{message}</p>}
+      </div>
     </main>
   );
 }
